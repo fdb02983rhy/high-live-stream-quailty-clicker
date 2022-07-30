@@ -1,5 +1,5 @@
-autoHigh() {
-    let time1 = setInterval(function() {
+const autoHigh = () => {
+    let time1 = setInterval(()=> {
         try {
             let videoDom = document.querySelector("#live-player");
             videoDom.dispatchEvent(new Event("mousemove"));
@@ -17,3 +17,5 @@ autoHigh() {
         } catch {}
     }, 1000);
 };
+
+autoHigh();
