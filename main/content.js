@@ -1,4 +1,4 @@
-const autoHigh = () => {
+const autoHighBilibili = () => {
     let time1 = setInterval(()=> {
         try {
             let videoDom = document.querySelector("#live-player");
@@ -18,4 +18,25 @@ const autoHigh = () => {
     }, 1000);
 };
 
-autoHigh();
+const autoHighHuya = () => {
+    let time1 = setInterval(()=> {
+        try {
+            let videoDom = document.querySelector("#player-video");
+            videoDom.dispatchEvent(new Event("mousemove"));
+            let quality = document.querySelector(".player-videotype-cur");
+            quality.dispatchEvent(new Event("mousemove"));
+            if (
+                document.querySelector(".player-videotype-cur").innerText !=
+                "蓝光8M"
+            ) {
+                let list = document.querySelector(".player-videotype-list");
+                list.firstChild.click();
+                quality.dispatchEvent(new Event("mouseleave"));
+            }
+            clearInterval(time1);
+        } catch {}
+    }, 1000);
+};
+
+autoHighBilibili();
+autoHighHuya();

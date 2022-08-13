@@ -5,7 +5,7 @@
     "manifest_version": 3,
     "content_scripts": [
         {
-            "matches": ["https://live.bilibili.com/*"],
+            "matches": ["https://live.bilibili.com/*","https://www.huya.com/*"],
             "js":["content.js"]
         }
     ],
@@ -24,6 +24,7 @@
     },
     "permissions": [
         "tabs",
-        "https://live.bilibili.com/*"
+        "https://live.bilibili.com/*",
+        "https://www.huya.com/*"
     ]
 }
