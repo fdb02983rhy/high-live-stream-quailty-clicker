@@ -39,10 +39,33 @@ const autoHighHuya = () => {
 	}, 1000);
 };
 
+const autoHighDouyu = () => {
+	let time1 = setInterval(() => {
+		try {
+			let videoDom = document.querySelector(".video-container-dbc7dc");
+			videoDom.dispatchEvent(new Event("mousemove"));
+			let quality = document.querySelector(".text-11dfbc");
+			quality.dispatchEvent(new Event("mousemove"));
+			if (
+				document
+					.querySelector(".player-videotype-cur")
+					.innerText.includes("蓝光")
+			) {
+				let list = document.querySelector(".tipItem-898596");
+				list.firstChild.click();
+				quality.dispatchEvent(new Event("mouseleave"));
+			}
+			clearInterval(time1);
+		} catch {}
+	}, 1000);
+};
+
 currentUrl = window.location.href;
 
 if (currentUrl.includes("live.bilibili")) {
 	autoHighBilibili();
 } else if (currentUrl.includes("huya")) {
 	autoHighHuya();
+} else if (currentUrl.includes("douyu")) {
+	autoHighDouyu();
 }
